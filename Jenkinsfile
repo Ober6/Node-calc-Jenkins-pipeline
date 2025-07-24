@@ -20,28 +20,52 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Node.js dependencies...'
-                sh 'npm install'
+                script {
+                    if (isUnix()) {
+                        sh 'npm install'
+                    } else {
+                        bat 'npm install'
+                    }
+                }
             }
         }
         
         stage('Run Tests') {
             steps {
                 echo 'Running tests...'
-                sh 'npm test'
+                script {
+                    if (isUnix()) {
+                        sh 'npm test'
+                    } else {
+                        bat 'npm test'
+                    }
+                }
             }
         }
         
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                sh 'npm run build'
+                script {
+                    if (isUnix()) {
+                        sh 'npm run build'
+                    } else {
+                        bat 'npm run build'
+                    }
+                }
             }
         }
         
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                sh 'npm start'
+                script {
+                    if (isUnix()) {
+                        sh 'npm start'
+                    } else {
+                        bat 'npm start'
+                    }
+                }
             }
         }
     }
