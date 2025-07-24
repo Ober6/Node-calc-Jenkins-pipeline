@@ -1,0 +1,14 @@
+{
+  "name": "jenkins-demo-calculator",
+  "version": "1.0.0",
+  "description": "A simple calculator for Jenkins CI/CD demo",
+  "main": "src/calculator.js",
+  "scripts": {
+    "test": "node test/calculator.test.js",
+    "start": "node src/app.js",
+    "build": "echo 'Build completed successfully'"
+  },
+  "keywords": ["jenkins", "calculator", "demo"],
+  "author": "ober6",
+  "license": "MIT"
+}
